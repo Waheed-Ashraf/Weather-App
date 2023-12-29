@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
+
+import 'package:weather_app/services/get_weather_service.dart';
+
+
 import 'package:weather_app/views/home_view.dart';
 
 
 void main() {
+
+  //WeatherService().getWeatherInfo();
+
 
   runApp(const WeatherApp());
 
