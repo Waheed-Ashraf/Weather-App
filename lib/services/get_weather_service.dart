@@ -1,11 +1,9 @@
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:weather_app/models/weather_model.dart';
 
 class WeatherService {
-  String baseUrl = "http://api.weatherapi.com/v1";
-  String apiKey = "3e021a1ab43b4724ab6134906232812";
+  final String baseUrl = "http://api.weatherapi.com/v1";
+  final String apiKey = "3e021a1ab43b4724ab6134906232812";
   var dio = Dio();
   Future<WeatherModel> getWeatherInfo({required String cityName}) async {
     try {
@@ -17,10 +15,10 @@ class WeatherService {
     } on DioException catch (e) {
       String errorMessage = e.response?.data['error']['message'] ??
           "ooops there was an error, please try again later";
-      throw Exception(errorMessage);
+      throw Exception(e);
     } catch (e) {
       // log(int.parse(e.toString()));
-      throw Exception("ooops there was an error, please try again later");
+      throw Exception(e);
     }
   }
 }
