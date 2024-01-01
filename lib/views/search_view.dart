@@ -16,25 +16,33 @@ class SearchView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Search'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: TextField(
-            onSubmitted: (value) async {
-              var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
-              getWeatherCubit.getWeather(cityName: value);
-              Navigator.pop(context);
-            },
-            decoration: const InputDecoration(
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-              hintText: 'Enter City Name',
-              label: Text('Search'),
-              suffixIcon: Icon(Icons.search),
-              border: OutlineInputBorder(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 150,
+            height: 150,
+            child: Image.asset("assets/images/cloud.png"),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            child: TextField(
+              onSubmitted: (value) async {
+                var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+                getWeatherCubit.getWeather(cityName: value);
+                Navigator.pop(context);
+              },
+              decoration: const InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                hintText: 'Enter City Name',
+                label: Text('Search'),
+                suffixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

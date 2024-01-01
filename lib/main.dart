@@ -18,9 +18,6 @@ import 'package:weather_app/views/home_view.dart';
 
 void main() {
 
-  //WeatherService().getWeatherInfo();
-
-
   runApp(const WeatherApp());
 
 }
@@ -155,7 +152,7 @@ MaterialColor getColorForCondition(String? condition) {
 
   if (condition == null) {
 
-    return Colors.red;
+    return Colors.orange;
 
   } else {
 

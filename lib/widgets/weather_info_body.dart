@@ -85,17 +85,9 @@ class WeatherInfoBody extends StatelessWidget {
 
                 children: [
 
-                  SizedBox(
+                  Image.network(
 
-                    height: 100,
-
-                    width: 100,
-
-                    child: Image.network(
-
-                      'https:${weatherModel.image}',
-
-                    ),
+                    'https:${weatherModel.image}',
 
                   ),
 

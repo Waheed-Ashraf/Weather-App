@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class NoWeatherBody extends StatelessWidget {
 
-  const NoWeatherBody({
+  NoWeatherBody({
 
     Key? key,
 
@@ -14,7 +14,7 @@ class NoWeatherBody extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
-    return const Padding(
+    return Padding(
 
       padding: EdgeInsets.symmetric(horizontal: 16),
 
@@ -26,21 +26,19 @@ class NoWeatherBody extends StatelessWidget {
 
           children: [
 
-            Text(
+            SizedBox(
 
-              'there is no weather 😔 start',
+              width: 150,
 
-              style: TextStyle(
+              height: 150,
 
-                fontSize: 20,
-
-              ),
+              child: Image.asset("assets/images/search.png"),
 
             ),
 
-            Text(
+            const Text(
 
-              'searching now 🔍',
+              'Searching for weather now',
 
               style: TextStyle(
 

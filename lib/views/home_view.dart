@@ -9,7 +9,9 @@ import 'package:weather_app/cubit/weather_cubit.dart';
 
 import 'package:weather_app/cubit/weather_states.dart';
 
+
 import 'package:weather_app/main.dart';
+
 
 import 'package:weather_app/models/weather_model.dart';
 
@@ -72,7 +74,7 @@ class HomeView extends StatelessWidget {
 
           if (state is WeatherInitialState) {
 
-            return const NoWeatherBody();
+            return NoWeatherBody();
 
           } else if (state is WeatherLoadedState) {
 
