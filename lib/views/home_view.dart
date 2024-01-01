@@ -9,6 +9,10 @@ import 'package:weather_app/cubit/weather_cubit.dart';
 
 import 'package:weather_app/cubit/weather_states.dart';
 
+import 'package:weather_app/main.dart';
+
+import 'package:weather_app/models/weather_model.dart';
+
 
 import 'package:weather_app/views/search_view.dart';
 

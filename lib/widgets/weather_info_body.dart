@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 
+import 'package:weather_app/main.dart';
+
+
 import 'package:weather_app/models/weather_model.dart';
 
 
@@ -16,149 +19,165 @@ class WeatherInfoBody extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
-    return Padding(
+    return Container(
 
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
 
-      child: Column(
+        gradient: LinearGradient(colors: [
 
-        mainAxisAlignment: MainAxisAlignment.center,
+          getColorForCondition(weatherModel.currentCondition.toLowerCase()),
 
-        children: [
+          Colors.white,
 
-          Text(
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
 
-            weatherModel.cityName,
+      ),
 
-            style: const TextStyle(
+      child: Padding(
 
-              fontWeight: FontWeight.bold,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
 
-              fontSize: 32,
+        child: Column(
+
+          mainAxisAlignment: MainAxisAlignment.center,
+
+          children: [
+
+            Text(
+
+              weatherModel.cityName,
+
+              style: const TextStyle(
+
+                fontWeight: FontWeight.bold,
+
+                fontSize: 32,
+
+              ),
 
             ),
 
-          ),
+            Text(
 
-          Text(
+              'updated at ${weatherModel.date.hour.toString()}:${weatherModel.date.minute.toString()}',
 
-            'updated at ${weatherModel.date.hour.toString()}:${weatherModel.date.minute.toString()}',
+              style: const TextStyle(
 
-            style: const TextStyle(
+                fontSize: 24,
 
-              fontSize: 24,
+              ),
 
             ),
 
-          ),
+            const SizedBox(
 
-          const SizedBox(
+              height: 32,
 
-            height: 32,
+            ),
 
-          ),
+            Padding(
 
-          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
 
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
 
-            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-              children: [
+                  SizedBox(
 
-                SizedBox(
+                    height: 100,
 
-                  height: 100,
+                    width: 100,
 
-                  width: 100,
+                    child: Image.network(
 
-                  child: Image.network(
+                      'https:${weatherModel.image}',
 
-                    'https:${weatherModel.image}',
-
-                  ),
-
-                ),
-
-                Text(
-
-                  "${weatherModel.currentTemp.round()}",
-
-                  style: const TextStyle(
-
-                    fontWeight: FontWeight.bold,
-
-                    fontSize: 32,
+                    ),
 
                   ),
 
-                ),
+                  Text(
 
-                Center(
+                    "${weatherModel.currentTemp.round()}",
 
-                  child: Column(
+                    style: const TextStyle(
 
-                    children: [
+                      fontWeight: FontWeight.bold,
 
-                      Text(
+                      fontSize: 32,
 
-                        'Maxtemp: ${weatherModel.maxTemp.round()}',
+                    ),
 
-                        style: const TextStyle(
+                  ),
 
-                          fontSize: 16,
+                  Center(
+
+                    child: Column(
+
+                      children: [
+
+                        Text(
+
+                          'Maxtemp: ${weatherModel.maxTemp.round()}',
+
+                          style: const TextStyle(
+
+                            fontSize: 16,
+
+                          ),
 
                         ),
 
-                      ),
+                        Text(
 
-                      Text(
+                          'Mintemp: ${weatherModel.minTemp.round()}',
 
-                        'Mintemp: ${weatherModel.minTemp.round()}',
+                          style: const TextStyle(
 
-                        style: const TextStyle(
+                            fontSize: 16,
 
-                          fontSize: 16,
+                          ),
 
                         ),
 
-                      ),
+                      ],
 
-                    ],
+                    ),
 
                   ),
 
-                ),
+                ],
 
-              ],
-
-            ),
-
-          ),
-
-          const SizedBox(
-
-            height: 32,
-
-          ),
-
-          Text(
-
-            weatherModel.currentCondition,
-
-            style: const TextStyle(
-
-              fontWeight: FontWeight.bold,
-
-              fontSize: 32,
+              ),
 
             ),
 
-          ),
+            const SizedBox(
 
-        ],
+              height: 32,
+
+            ),
+
+            Text(
+
+              weatherModel.currentCondition,
+
+              style: const TextStyle(
+
+                fontWeight: FontWeight.bold,
+
+                fontSize: 32,
+
+              ),
+
+            ),
+
+          ],
+
+        ),
 
       ),
 

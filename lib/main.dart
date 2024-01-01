@@ -51,10 +51,20 @@ class WeatherApp extends StatelessWidget {
 
                 theme: ThemeData(
 
-                  primarySwatch: getColorForCondition(
-                      BlocProvider.of<GetWeatherCubit>(context)
-                          .weatherModel
-                          ?.currentCondition),
+                  appBarTheme: AppBarTheme(
+
+                    backgroundColor: getColorForCondition(
+
+                        BlocProvider.of<GetWeatherCubit>(context)
+
+                            .weatherModel
+
+                            ?.currentCondition
+
+                            .toLowerCase()),
+
+                  ),
+
                 ),
 
                 home: HomeView(),
@@ -217,6 +227,8 @@ MaterialColor getColorForCondition(String? condition) {
 
 
       case 'blizzard':
+
+      case 'clear':
 
         return Colors.blueGrey;
 
